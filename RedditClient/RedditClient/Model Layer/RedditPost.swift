@@ -29,6 +29,10 @@ class RedditPost: NSObject {
         }
         
         self.numberOfComments = dictionary.object(forKey: "num_comments") as? Int ?? 0
+        
+        if let imageURL = dictionary.object(forKey: "url") as? String {
+            self.imageUrl = URL(string: imageURL)
+        }
     }
     
 }

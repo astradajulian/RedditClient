@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		99F4A77322E4D9B00047A972 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A77222E4D9B00047A972 /* AppDelegate.swift */; };
-		99F4A77522E4D9B00047A972 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A77422E4D9B00047A972 /* ViewController.swift */; };
+		99F4A77522E4D9B00047A972 /* PostListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A77422E4D9B00047A972 /* PostListingViewController.swift */; };
 		99F4A77822E4D9B00047A972 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A77622E4D9B00047A972 /* Main.storyboard */; };
 		99F4A77A22E4D9B20047A972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A77922E4D9B20047A972 /* Assets.xcassets */; };
 		99F4A77D22E4D9B20047A972 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A77B22E4D9B20047A972 /* LaunchScreen.storyboard */; };
@@ -25,6 +25,9 @@
 		99F4A7B522E4EC4E0047A972 /* ImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B422E4EC4E0047A972 /* ImageView+Utils.swift */; };
 		99F4A7BA22E4F21E0047A972 /* SpinnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B822E4F21E0047A972 /* SpinnerTableViewCell.swift */; };
 		99F4A7BB22E4F21E0047A972 /* SpinnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A7B922E4F21E0047A972 /* SpinnerTableViewCell.xib */; };
+		99F4A7BF22E4F6B10047A972 /* PostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A7BE22E4F6B10047A972 /* PostDetail.storyboard */; };
+		99F4A7C122E4F6D80047A972 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7C022E4F6D80047A972 /* PostDetailViewController.swift */; };
+		99F4A7C422E4F9810047A972 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99F4A7C322E4F9810047A972 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +50,7 @@
 /* Begin PBXFileReference section */
 		99F4A76F22E4D9B00047A972 /* RedditClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F4A77222E4D9B00047A972 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		99F4A77422E4D9B00047A972 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		99F4A77422E4D9B00047A972 /* PostListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListingViewController.swift; sourceTree = "<group>"; };
 		99F4A77722E4D9B00047A972 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99F4A77922E4D9B20047A972 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F4A77C22E4D9B20047A972 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,6 +72,9 @@
 		99F4A7B422E4EC4E0047A972 /* ImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Utils.swift"; sourceTree = "<group>"; };
 		99F4A7B822E4F21E0047A972 /* SpinnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerTableViewCell.swift; sourceTree = "<group>"; };
 		99F4A7B922E4F21E0047A972 /* SpinnerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpinnerTableViewCell.xib; sourceTree = "<group>"; };
+		99F4A7BE22E4F6B10047A972 /* PostDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostDetail.storyboard; sourceTree = "<group>"; };
+		99F4A7C022E4F6D80047A972 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		99F4A7C322E4F9810047A972 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99F4A7C422E4F9810047A972 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +110,7 @@
 				99F4A78622E4D9B20047A972 /* RedditClientTests */,
 				99F4A79122E4D9B20047A972 /* RedditClientUITests */,
 				99F4A77022E4D9B00047A972 /* Products */,
+				99F4A7C222E4F9810047A972 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,7 +132,6 @@
 				99F4A7AF22E4E54F0047A972 /* Data Layer */,
 				99F4A7A822E4DCF90047A972 /* UI Layer */,
 				99F4A77222E4D9B00047A972 /* AppDelegate.swift */,
-				99F4A77422E4D9B00047A972 /* ViewController.swift */,
 				99F4A77622E4D9B00047A972 /* Main.storyboard */,
 				99F4A77922E4D9B20047A972 /* Assets.xcassets */,
 				99F4A77B22E4D9B20047A972 /* LaunchScreen.storyboard */,
@@ -173,10 +180,8 @@
 		99F4A7A822E4DCF90047A972 /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
-				99F4A7A922E4DD1A0047A972 /* RedditPostTableViewCell.swift */,
-				99F4A7AA22E4DD1A0047A972 /* RedditPostTableViewCell.xib */,
-				99F4A7B822E4F21E0047A972 /* SpinnerTableViewCell.swift */,
-				99F4A7B922E4F21E0047A972 /* SpinnerTableViewCell.xib */,
+				99F4A7BC22E4F64E0047A972 /* Post Listing */,
+				99F4A7BD22E4F6920047A972 /* Post Detail */,
 			);
 			path = "UI Layer";
 			sourceTree = "<group>";
@@ -188,6 +193,35 @@
 				99F4A7B222E4E6640047A972 /* PostsDataSource.swift */,
 			);
 			path = "Data Layer";
+			sourceTree = "<group>";
+		};
+		99F4A7BC22E4F64E0047A972 /* Post Listing */ = {
+			isa = PBXGroup;
+			children = (
+				99F4A77422E4D9B00047A972 /* PostListingViewController.swift */,
+				99F4A7A922E4DD1A0047A972 /* RedditPostTableViewCell.swift */,
+				99F4A7AA22E4DD1A0047A972 /* RedditPostTableViewCell.xib */,
+				99F4A7B822E4F21E0047A972 /* SpinnerTableViewCell.swift */,
+				99F4A7B922E4F21E0047A972 /* SpinnerTableViewCell.xib */,
+			);
+			path = "Post Listing";
+			sourceTree = "<group>";
+		};
+		99F4A7BD22E4F6920047A972 /* Post Detail */ = {
+			isa = PBXGroup;
+			children = (
+				99F4A7BE22E4F6B10047A972 /* PostDetail.storyboard */,
+				99F4A7C022E4F6D80047A972 /* PostDetailViewController.swift */,
+			);
+			path = "Post Detail";
+			sourceTree = "<group>";
+		};
+		99F4A7C222E4F9810047A972 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99F4A7C322E4F9810047A972 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99F4A77D22E4D9B20047A972 /* LaunchScreen.storyboard in Resources */,
+				99F4A7BF22E4F6B10047A972 /* PostDetail.storyboard in Resources */,
 				99F4A7AC22E4DD1A0047A972 /* RedditPostTableViewCell.xib in Resources */,
 				99F4A7BB22E4F21E0047A972 /* SpinnerTableViewCell.xib in Resources */,
 				99F4A77A22E4D9B20047A972 /* Assets.xcassets in Resources */,
@@ -324,12 +359,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				99F4A7BA22E4F21E0047A972 /* SpinnerTableViewCell.swift in Sources */,
+				99F4A7C122E4F6D80047A972 /* PostDetailViewController.swift in Sources */,
 				99F4A7A222E4DB080047A972 /* APIManager.swift in Sources */,
 				99F4A7B122E4E5670047A972 /* DataManager.swift in Sources */,
 				99F4A7AB22E4DD1A0047A972 /* RedditPostTableViewCell.swift in Sources */,
 				99F4A7A422E4DB4E0047A972 /* RedditPost.swift in Sources */,
 				99F4A7A722E4DBE00047A972 /* Dictionary+Utils.swift in Sources */,
-				99F4A77522E4D9B00047A972 /* ViewController.swift in Sources */,
+				99F4A77522E4D9B00047A972 /* PostListingViewController.swift in Sources */,
 				99F4A7AE22E4E18A0047A972 /* Date+Utils.swift in Sources */,
 				99F4A77322E4D9B00047A972 /* AppDelegate.swift in Sources */,
 				99F4A7B522E4EC4E0047A972 /* ImageView+Utils.swift in Sources */,

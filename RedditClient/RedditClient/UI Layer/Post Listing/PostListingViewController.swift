@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PostListingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: DataSourceObserver {
+extension PostListingViewController: DataSourceObserver {
     
     func dataSourceUpdated() {
         DispatchQueue.main.async {
@@ -41,7 +41,7 @@ extension ViewController: DataSourceObserver {
     
 }
 
-extension ViewController: UITableViewDelegate {
+extension PostListingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let spinnerCell = cell as? SpinnerTableViewCell {
@@ -49,6 +49,16 @@ extension ViewController: UITableViewDelegate {
             
             self.dataSource.loadNextPage()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailNVC = UIStoryboard(name: postDetailStoryboard, bundle: nil).instantiateInitialViewController() as? UINavigationController, let detailVC = detailNVC.topViewController as? PostDetailViewController else {
+            return
+        }
+        
+        detailVC.post = self.dataSource.posts[indexPath.row]
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }

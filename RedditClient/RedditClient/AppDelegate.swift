@@ -8,6 +8,8 @@
 
 import UIKit
 
+let postDetailStoryboard = "PostDetail"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
