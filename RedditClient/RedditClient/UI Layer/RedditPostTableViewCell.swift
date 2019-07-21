@@ -30,6 +30,12 @@ class RedditPostTableViewCell: UITableViewCell {
         self.commentsLabel.text = "\(post.numberOfComments) comments"
         
         self.ageLabel.text = post.date.formattedStringAge()
+        
+        if let thumbnailURL = post.thumbnail {
+            self.thumbnailImageView.setImageFromURL(url: thumbnailURL)
+        }
+        
+        self.thumbnailImageView.isHidden = post.thumbnail == nil
     }
     
 }

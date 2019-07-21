@@ -12,32 +12,31 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var dataSource: PostsDataSource!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        self.dataSource = PostsDataSource(observer: self)
+        self.tableView.dataSource = self.dataSource
         self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.register(UINib(nibName: RedditPostTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RedditPostTableViewCell.identifier)
+    }
+
+}
+
+extension ViewController: DataSourceObserver {
+    
+    func dataSourceUpdated() {
+        tableView.reloadData()
+        
+        if tableView.visibleCells.count > 0 {
+            tableView.scrollToRow(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+        }
     }
     
-    func fetchData() {
+    func dataSourceFailed() {
         
     }
-
-}
-
-extension ViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-}
-
-extension ViewController: UITableViewDelegate {
     
 }

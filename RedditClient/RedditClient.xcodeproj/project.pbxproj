@@ -20,6 +20,9 @@
 		99F4A7AB22E4DD1A0047A972 /* RedditPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7A922E4DD1A0047A972 /* RedditPostTableViewCell.swift */; };
 		99F4A7AC22E4DD1A0047A972 /* RedditPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A7AA22E4DD1A0047A972 /* RedditPostTableViewCell.xib */; };
 		99F4A7AE22E4E18A0047A972 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7AD22E4E18A0047A972 /* Date+Utils.swift */; };
+		99F4A7B122E4E5670047A972 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B022E4E5670047A972 /* DataManager.swift */; };
+		99F4A7B322E4E6640047A972 /* PostsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B222E4E6640047A972 /* PostsDataSource.swift */; };
+		99F4A7B522E4EC4E0047A972 /* ImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B422E4EC4E0047A972 /* ImageView+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		99F4A7A922E4DD1A0047A972 /* RedditPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPostTableViewCell.swift; sourceTree = "<group>"; };
 		99F4A7AA22E4DD1A0047A972 /* RedditPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RedditPostTableViewCell.xib; sourceTree = "<group>"; };
 		99F4A7AD22E4E18A0047A972 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		99F4A7B022E4E5670047A972 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		99F4A7B222E4E6640047A972 /* PostsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDataSource.swift; sourceTree = "<group>"; };
+		99F4A7B422E4EC4E0047A972 /* ImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 			children = (
 				99F4A7A522E4DBC00047A972 /* Utils */,
 				99F4A7A022E4DADD0047A972 /* Model Layer */,
+				99F4A7AF22E4E54F0047A972 /* Data Layer */,
 				99F4A7A822E4DCF90047A972 /* UI Layer */,
 				99F4A77222E4D9B00047A972 /* AppDelegate.swift */,
 				99F4A77422E4D9B00047A972 /* ViewController.swift */,
@@ -154,6 +161,7 @@
 			children = (
 				99F4A7A622E4DBE00047A972 /* Dictionary+Utils.swift */,
 				99F4A7AD22E4E18A0047A972 /* Date+Utils.swift */,
+				99F4A7B422E4EC4E0047A972 /* ImageView+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -165,6 +173,15 @@
 				99F4A7AA22E4DD1A0047A972 /* RedditPostTableViewCell.xib */,
 			);
 			path = "UI Layer";
+			sourceTree = "<group>";
+		};
+		99F4A7AF22E4E54F0047A972 /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				99F4A7B022E4E5670047A972 /* DataManager.swift */,
+				99F4A7B222E4E6640047A972 /* PostsDataSource.swift */,
+			);
+			path = "Data Layer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,12 +317,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				99F4A7A222E4DB080047A972 /* APIManager.swift in Sources */,
+				99F4A7B122E4E5670047A972 /* DataManager.swift in Sources */,
 				99F4A7AB22E4DD1A0047A972 /* RedditPostTableViewCell.swift in Sources */,
 				99F4A7A422E4DB4E0047A972 /* RedditPost.swift in Sources */,
 				99F4A7A722E4DBE00047A972 /* Dictionary+Utils.swift in Sources */,
 				99F4A77522E4D9B00047A972 /* ViewController.swift in Sources */,
 				99F4A7AE22E4E18A0047A972 /* Date+Utils.swift in Sources */,
 				99F4A77322E4D9B00047A972 /* AppDelegate.swift in Sources */,
+				99F4A7B522E4EC4E0047A972 /* ImageView+Utils.swift in Sources */,
+				99F4A7B322E4E6640047A972 /* PostsDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
