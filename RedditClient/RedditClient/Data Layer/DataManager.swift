@@ -12,13 +12,21 @@ class DataManager: NSObject {
     
     static let sharedInstance = DataManager()
     
-    let DEFAULT_LIMIT = "25"
+    let DEFAULT_LIMIT = "10"
     
     var count : Int!
     var before : String?
     var after : String?
     
-    func getTopEntries(success: @escaping (_ posts:[RedditPost])->(), failure: @escaping ()->()) {
+    var isFetching = false
+    
+    func getTopPosts(success: @escaping (_ posts:[RedditPost])->(), failure: @escaping ()->()) {
+        guard isFetching == false else {
+            return
+        }
+        
+        isFetching = true
+        
         count = 0
         before = nil
         after = nil
@@ -29,15 +37,23 @@ class DataManager: NSObject {
         param["after"] = after as AnyObject?
         
         APIManager.sharedInstance.getTopPosts(parameters: param, success: {[weak self] (posts, before, after) in
+            self?.isFetching = false
             self?.before = before
             self?.after = after
             success(posts)
-        }) {
+        }) {[weak self] in
+            self?.isFetching = false
             failure()
         }
     }
     
-    func getNextPageEntries(success: @escaping (_ posts:[RedditPost])->(), failure: @escaping ()->()) {
+    func getNextPagePosts(success: @escaping (_ posts:[RedditPost])->(), failure: @escaping ()->()) {
+        guard isFetching == false else {
+            return
+        }
+        
+        isFetching = true
+        
         count = count + Int(DEFAULT_LIMIT)!
         var param : [String : AnyObject] = [String:AnyObject]()
         param["limit"] = DEFAULT_LIMIT as AnyObject?
@@ -45,35 +61,18 @@ class DataManager: NSObject {
         param["after"] = after as AnyObject?
         
         APIManager.sharedInstance.getTopPosts(parameters: param, success: {[weak self] (posts, before, after) in
+            self?.isFetching = false
             self?.before = before
             self?.after = after
             success(posts)
-        }) {
-            failure()
-        }
-    }
-    
-    func getPreviousPageEntries(success: @escaping (_ posts:[RedditPost])->(), failure: @escaping ()->()) {
-        var param : [String : AnyObject] = [String:AnyObject]()
-        param["limit"] = DEFAULT_LIMIT as AnyObject?
-        param["count"] = String(count) as AnyObject?
-        param["before"] = before as AnyObject?
-        
-        APIManager.sharedInstance.getTopPosts(parameters: param, success: {[weak self] (posts, before, after) in
-            self?.before = before
-            self?.after = after
-            success(posts)
-        }) {
+        }) {[weak self] in
+            self?.isFetching = false
             failure()
         }
     }
     
     func isNextPageAvailable() -> Bool {
         return self.after != nil
-    }
-    
-    func isPreviousPageAvailable() -> Bool {
-        return self.before != nil
     }
     
 }

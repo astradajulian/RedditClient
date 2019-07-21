@@ -24,11 +24,11 @@ class PostsDataSource: NSObject {
         
         super.init()
         
-        loadTopStories()
+        loadTopPosts()
     }
     
-    func loadTopStories(){
-        DataManager.sharedInstance.getTopEntries(success: {[weak self] (posts) in
+    func loadTopPosts(){
+        DataManager.sharedInstance.getTopPosts(success: {[weak self] (posts) in
             self?.posts = posts
             
             DispatchQueue.main.async{
@@ -40,18 +40,8 @@ class PostsDataSource: NSObject {
     }
     
     func loadNextPage() {
-        DataManager.sharedInstance.getNextPageEntries(success: {[weak self] (posts) in
-            self?.posts = posts
-            
-            self?.observer.dataSourceUpdated()
-        }) {[weak self] in
-            self?.observer.dataSourceFailed()
-        }
-    }
-    
-    func loadPreviousPage() {
-        DataManager.sharedInstance.getPreviousPageEntries(success: {[weak self] (posts) in
-            self?.posts = posts
+        DataManager.sharedInstance.getNextPagePosts(success: {[weak self] (posts) in
+            self?.posts.append(contentsOf: posts)
             
             self?.observer.dataSourceUpdated()
         }) {[weak self] in
@@ -64,10 +54,18 @@ class PostsDataSource: NSObject {
 extension PostsDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return posts.count + (DataManager.sharedInstance.isNextPageAvailable() ? 1 : 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.row < posts.count else {
+            guard let spinnerCell = tableView.dequeueReusableCell(withIdentifier: SpinnerTableViewCell.identifier) else {
+                return UITableViewCell()
+            }
+            
+            return spinnerCell
+        }
+        
         guard let postCell : RedditPostTableViewCell = tableView.dequeueReusableCell(withIdentifier: RedditPostTableViewCell.identifier) as? RedditPostTableViewCell else {
             return UITableViewCell()
         }

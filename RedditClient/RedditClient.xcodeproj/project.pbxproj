@@ -23,6 +23,8 @@
 		99F4A7B122E4E5670047A972 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B022E4E5670047A972 /* DataManager.swift */; };
 		99F4A7B322E4E6640047A972 /* PostsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B222E4E6640047A972 /* PostsDataSource.swift */; };
 		99F4A7B522E4EC4E0047A972 /* ImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B422E4EC4E0047A972 /* ImageView+Utils.swift */; };
+		99F4A7BA22E4F21E0047A972 /* SpinnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B822E4F21E0047A972 /* SpinnerTableViewCell.swift */; };
+		99F4A7BB22E4F21E0047A972 /* SpinnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A7B922E4F21E0047A972 /* SpinnerTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		99F4A7B022E4E5670047A972 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		99F4A7B222E4E6640047A972 /* PostsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsDataSource.swift; sourceTree = "<group>"; };
 		99F4A7B422E4EC4E0047A972 /* ImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Utils.swift"; sourceTree = "<group>"; };
+		99F4A7B822E4F21E0047A972 /* SpinnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerTableViewCell.swift; sourceTree = "<group>"; };
+		99F4A7B922E4F21E0047A972 /* SpinnerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpinnerTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +175,8 @@
 			children = (
 				99F4A7A922E4DD1A0047A972 /* RedditPostTableViewCell.swift */,
 				99F4A7AA22E4DD1A0047A972 /* RedditPostTableViewCell.xib */,
+				99F4A7B822E4F21E0047A972 /* SpinnerTableViewCell.swift */,
+				99F4A7B922E4F21E0047A972 /* SpinnerTableViewCell.xib */,
 			);
 			path = "UI Layer";
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 			files = (
 				99F4A77D22E4D9B20047A972 /* LaunchScreen.storyboard in Resources */,
 				99F4A7AC22E4DD1A0047A972 /* RedditPostTableViewCell.xib in Resources */,
+				99F4A7BB22E4F21E0047A972 /* SpinnerTableViewCell.xib in Resources */,
 				99F4A77A22E4D9B20047A972 /* Assets.xcassets in Resources */,
 				99F4A77822E4D9B00047A972 /* Main.storyboard in Resources */,
 			);
@@ -316,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99F4A7BA22E4F21E0047A972 /* SpinnerTableViewCell.swift in Sources */,
 				99F4A7A222E4DB080047A972 /* APIManager.swift in Sources */,
 				99F4A7B122E4E5670047A972 /* DataManager.swift in Sources */,
 				99F4A7AB22E4DD1A0047A972 /* RedditPostTableViewCell.swift in Sources */,
