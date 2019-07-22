@@ -9,7 +9,13 @@
 import UIKit
 
 class RedditPostTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var unseenIndicator: UIView! {
+        didSet {
+            self.unseenIndicator.layer.cornerRadius = 5
+        }
+    }
+    
     @IBOutlet weak var authorLabel: UILabel!
     
     @IBOutlet weak var ageLabel: UILabel!
@@ -36,6 +42,8 @@ class RedditPostTableViewCell: UITableViewCell {
         }
         
         self.thumbnailImageView.isHidden = post.thumbnail == nil
+        
+        self.unseenIndicator.isHidden = !post.unseen
     }
     
 }

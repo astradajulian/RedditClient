@@ -12,7 +12,9 @@ class PostListingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataSource: PostsDataSource!
+    private var dataSource: PostsDataSource!
+    
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,25 +23,43 @@ class PostListingViewController: UIViewController {
         self.tableView.dataSource = self.dataSource
         self.tableView.delegate = self
         self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.refreshControl = self.refreshControl
         self.tableView.register(UINib(nibName: RedditPostTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: RedditPostTableViewCell.identifier)
         self.tableView.register(UINib(nibName: SpinnerTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: SpinnerTableViewCell.identifier)
+        
+        self.refreshControl.tintColor = .white
+        self.refreshControl.addTarget(self, action: #selector(refreshTableView(_:)), for: .valueChanged)
+    }
+    
+    @objc private func refreshTableView(_ sender: Any) {
+        self.dataSource.loadTopPosts()
     }
 
 }
+
+// MARK: - DataSourceObserver
 
 extension PostListingViewController: DataSourceObserver {
     
     func dataSourceUpdated() {
         DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
+            
             self.tableView.reloadData()
         }
     }
     
     func dataSourceFailed() {
-        
+        DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
+            
+            //TODO Error handling
+        }
     }
     
 }
+
+// MARK: - UITableViewDelegate
 
 extension PostListingViewController: UITableViewDelegate {
     
@@ -52,6 +72,10 @@ extension PostListingViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.dataSource.posts[indexPath.row].unseen = false
+        
+        tableView.reloadRows(at: [indexPath], with: .none)
+        
         guard let detailNVC = UIStoryboard(name: postDetailStoryboard, bundle: nil).instantiateInitialViewController() as? UINavigationController, let detailVC = detailNVC.topViewController as? PostDetailViewController else {
             return
         }

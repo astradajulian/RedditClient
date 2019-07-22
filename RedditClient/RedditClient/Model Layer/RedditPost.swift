@@ -16,6 +16,7 @@ class RedditPost: NSObject {
     var thumbnail : URL?
     var imageUrl : URL?
     var numberOfComments : Int
+    var unseen: Bool
     
     init(dictionary : NSDictionary) {
         self.title = dictionary.object(forKey: "title") as? String ?? ""
@@ -33,6 +34,8 @@ class RedditPost: NSObject {
         if let imageURL = dictionary.object(forKey: "url") as? String {
             self.imageUrl = URL(string: imageURL)
         }
+        
+        self.unseen = true
     }
     
 }
