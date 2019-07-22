@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol DataSourceObserver {
+protocol DataSourceObserver: NSObject {
     func dataSourceUpdated()
     func dataSourceFailed()
 }
 
 class PostsDataSource: NSObject {
 
-    var observer : DataSourceObserver
+    weak var observer : DataSourceObserver?
     var posts : [RedditPost]
     
     init(observer: DataSourceObserver) {
@@ -31,11 +31,9 @@ class PostsDataSource: NSObject {
         DataManager.sharedInstance.getTopPosts(success: {[weak self] (posts) in
             self?.posts = posts
             
-            DispatchQueue.main.async{
-                self?.observer.dataSourceUpdated()
-            }
-        }) { [weak self] in
-            self?.observer.dataSourceUpdated()
+            self?.observer?.dataSourceUpdated()
+        }) {[weak self] in
+            self?.observer?.dataSourceUpdated()
         }
     }
     
@@ -43,9 +41,9 @@ class PostsDataSource: NSObject {
         DataManager.sharedInstance.getNextPagePosts(success: {[weak self] (posts) in
             self?.posts.append(contentsOf: posts)
             
-            self?.observer.dataSourceUpdated()
+            self?.observer?.dataSourceUpdated()
         }) {[weak self] in
-            self?.observer.dataSourceFailed()
+            self?.observer?.dataSourceFailed()
         }
     }
     

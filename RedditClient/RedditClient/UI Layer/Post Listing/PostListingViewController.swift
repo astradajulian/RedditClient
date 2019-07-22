@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PostListingDelegate: NSObject {
+    func didSelectPost(post: RedditPost?)
+}
+
 class PostListingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -15,6 +19,8 @@ class PostListingViewController: UIViewController {
     private var dataSource: PostsDataSource!
     
     private let refreshControl = UIRefreshControl()
+    
+    weak var delegate: PostListingDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,18 +53,21 @@ class PostListingViewController: UIViewController {
 extension PostListingViewController: DataSourceObserver {
     
     func dataSourceUpdated() {
-        DispatchQueue.main.async {
-            self.refreshControl.endRefreshing()
+        DispatchQueue.main.async {[weak self] in
+            self?.refreshControl.endRefreshing()
             
-            self.tableView.reloadData()
+            self?.tableView.reloadData()
         }
     }
     
     func dataSourceFailed() {
-        DispatchQueue.main.async {
-            self.refreshControl.endRefreshing()
+        DispatchQueue.main.async {[weak self] in
+            self?.refreshControl.endRefreshing()
             
-            //TODO Error handling
+            let alert = UIAlertController(title: NSLocalizedString("Error", comment: "Error"), message: NSLocalizedString("An error ocurred trying to retrieve the data", comment: "Error message"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self?.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -77,17 +86,10 @@ extension PostListingViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.didSelectPost(post: self.dataSource.posts[indexPath.row])
         self.dataSource.posts[indexPath.row].unseen = false
-        
+
         tableView.reloadRows(at: [indexPath], with: .none)
-        
-        guard let detailNVC = UIStoryboard(name: postDetailStoryboard, bundle: nil).instantiateInitialViewController() as? UINavigationController, let detailVC = detailNVC.topViewController as? PostDetailViewController else {
-            return
-        }
-        
-        detailVC.post = self.dataSource.posts[indexPath.row]
-        
-        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }
@@ -113,6 +115,7 @@ extension PostListingViewController: RedditPostCellDelegate {
         
         self.dataSource.posts.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .right)
+        self.delegate?.didSelectPost(post: nil)
     }
     
 }

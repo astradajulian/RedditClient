@@ -8,9 +8,13 @@
 
 import UIKit
 
+let mainSplitStoryboard = "MainSplit"
+
 let fullScreenURLStoryboard = "FullScreenURL"
 
 let postDetailStoryboard = "PostDetail"
+
+let postListingStoryboard = "PostListing"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        guard let splitVC = UIStoryboard(name: mainSplitStoryboard, bundle: nil).instantiateInitialViewController() as? MainSplitViewController,
+                let masterNVC = UIStoryboard(name: postListingStoryboard, bundle: nil).instantiateInitialViewController() as? UINavigationController,
+                let masterVC = masterNVC.topViewController as? PostListingViewController,
+                let detailVC = UIStoryboard(name: postDetailStoryboard, bundle: nil).instantiateInitialViewController() as? PostDetailViewController else {
+            return true
+        }
+        
+        masterVC.delegate = splitVC
+        
+        splitVC.viewControllers = [masterNVC, detailVC]
+        
+        window?.rootViewController = splitVC
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

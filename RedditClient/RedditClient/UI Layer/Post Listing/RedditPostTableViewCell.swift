@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RedditPostCellDelegate {
+protocol RedditPostCellDelegate: NSObject {
     func thumbnailPressed(cell: RedditPostTableViewCell)
     
     func dismissed(cell: RedditPostTableViewCell)
@@ -34,7 +34,7 @@ class RedditPostTableViewCell: UITableViewCell {
     
     static let identifier = "RedditPostTableViewCell"
     
-    var delegate: RedditPostCellDelegate?
+    weak var delegate: RedditPostCellDelegate?
     
     func setupCell(post: RedditPost) {
         self.authorLabel.text = post.author

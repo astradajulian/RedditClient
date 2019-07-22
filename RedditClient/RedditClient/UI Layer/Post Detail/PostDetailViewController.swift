@@ -16,18 +16,25 @@ class PostDetailViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    var post: RedditPost!
+    var post: RedditPost?
+    
+    func refreshUI() {
+        self.authorLabel.text = post?.author
+        
+        if let thumbnailURL = post?.thumbnail {
+            self.pictureImageView.setImageFromURL(url: thumbnailURL)
+            self.pictureImageView.isHidden = false
+        } else {
+            self.pictureImageView.isHidden = true
+        }
+        
+        self.titleLabel.text = post?.title
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.authorLabel.text = post.author
-        
-        if let thumbnailURL = post.thumbnail {
-            self.pictureImageView.setImageFromURL(url: thumbnailURL)
-        }
-        
-        self.titleLabel.text = post.title
+        refreshUI()
     }
 
 }

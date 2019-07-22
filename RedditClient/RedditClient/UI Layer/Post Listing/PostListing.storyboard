@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1P0-dZ-LQH">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reddit Posts-->
+        <scene sceneID="2Yu-ge-Eac">
+            <objects>
+                <viewController id="JIT-cE-in6" customClass="PostListingViewController" customModule="RedditClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q01-SF-czP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yDa-PT-NZ1">
+                                <rect key="frame" x="0.0" y="88" width="414" height="748"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqj-Gb-n4K">
+                                <rect key="frame" x="0.0" y="836" width="414" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="gLU-vr-nRi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Dismiss All">
+                                    <color key="titleColor" red="1" green="0.65713463110000003" blue="0.28429011739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissAllButtonPressed:" destination="JIT-cE-in6" eventType="touchUpInside" id="laU-Wu-5Xt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JyJ-lC-DIk" firstAttribute="trailing" secondItem="Tqj-Gb-n4K" secondAttribute="trailing" id="0mF-GC-P0A"/>
+                            <constraint firstItem="JyJ-lC-DIk" firstAttribute="trailing" secondItem="yDa-PT-NZ1" secondAttribute="trailing" id="2pf-zb-2E3"/>
+                            <constraint firstItem="Tqj-Gb-n4K" firstAttribute="leading" secondItem="JyJ-lC-DIk" secondAttribute="leading" id="6QR-eC-hq5"/>
+                            <constraint firstItem="yDa-PT-NZ1" firstAttribute="top" secondItem="JyJ-lC-DIk" secondAttribute="top" id="D7n-YK-zko"/>
+                            <constraint firstItem="yDa-PT-NZ1" firstAttribute="leading" secondItem="JyJ-lC-DIk" secondAttribute="leading" id="HJh-Bi-oYn"/>
+                            <constraint firstItem="Tqj-Gb-n4K" firstAttribute="top" secondItem="yDa-PT-NZ1" secondAttribute="bottom" id="drO-Oy-5c7"/>
+                            <constraint firstAttribute="bottom" secondItem="Tqj-Gb-n4K" secondAttribute="bottom" id="j4O-s4-T2I"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JyJ-lC-DIk"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reddit Posts" id="dly-yZ-4vZ"/>
+                    <connections>
+                        <outlet property="tableView" destination="yDa-PT-NZ1" id="WDu-Ef-QkP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wBy-gO-GgX" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2242.0289855072465" y="-222.32142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="P8G-Gf-HDf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1P0-dZ-LQH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q6o-L1-FuS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JIT-cE-in6" kind="relationship" relationship="rootViewController" id="oyb-SB-xGz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u2g-Jj-Ull" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1331.8840579710145" y="-222.32142857142856"/>
+        </scene>
+    </scenes>
+</document>

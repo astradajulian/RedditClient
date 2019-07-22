@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		99F4A77322E4D9B00047A972 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A77222E4D9B00047A972 /* AppDelegate.swift */; };
 		99F4A77522E4D9B00047A972 /* PostListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A77422E4D9B00047A972 /* PostListingViewController.swift */; };
-		99F4A77822E4D9B00047A972 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A77622E4D9B00047A972 /* Main.storyboard */; };
+		99F4A77822E4D9B00047A972 /* MainSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A77622E4D9B00047A972 /* MainSplit.storyboard */; };
 		99F4A77A22E4D9B20047A972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A77922E4D9B20047A972 /* Assets.xcassets */; };
 		99F4A77D22E4D9B20047A972 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A77B22E4D9B20047A972 /* LaunchScreen.storyboard */; };
 		99F4A78822E4D9B20047A972 /* RedditClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A78722E4D9B20047A972 /* RedditClientTests.swift */; };
@@ -30,6 +30,8 @@
 		99F4A7C422E4F9810047A972 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99F4A7C322E4F9810047A972 /* WebKit.framework */; };
 		99F4A7C722E5EF3D0047A972 /* PostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A7C622E5EF3D0047A972 /* PostDetail.storyboard */; };
 		99F4A7C922E5EF490047A972 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7C822E5EF490047A972 /* PostDetailViewController.swift */; };
+		99F4A7CC22E63C8B0047A972 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7CB22E63C8B0047A972 /* MainSplitViewController.swift */; };
+		99F4A7CE22E63F4B0047A972 /* PostListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A7CD22E63F4B0047A972 /* PostListing.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +55,7 @@
 		99F4A76F22E4D9B00047A972 /* RedditClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F4A77222E4D9B00047A972 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99F4A77422E4D9B00047A972 /* PostListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListingViewController.swift; sourceTree = "<group>"; };
-		99F4A77722E4D9B00047A972 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		99F4A77722E4D9B00047A972 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainSplit.storyboard; sourceTree = "<group>"; };
 		99F4A77922E4D9B20047A972 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F4A77C22E4D9B20047A972 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99F4A77E22E4D9B20047A972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,8 @@
 		99F4A7C322E4F9810047A972 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		99F4A7C622E5EF3D0047A972 /* PostDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostDetail.storyboard; sourceTree = "<group>"; };
 		99F4A7C822E5EF490047A972 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		99F4A7CB22E63C8B0047A972 /* MainSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		99F4A7CD22E63F4B0047A972 /* PostListing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostListing.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +140,6 @@
 				99F4A7AF22E4E54F0047A972 /* Data Layer */,
 				99F4A7A822E4DCF90047A972 /* UI Layer */,
 				99F4A77222E4D9B00047A972 /* AppDelegate.swift */,
-				99F4A77622E4D9B00047A972 /* Main.storyboard */,
 				99F4A77922E4D9B20047A972 /* Assets.xcassets */,
 				99F4A77B22E4D9B20047A972 /* LaunchScreen.storyboard */,
 				99F4A77E22E4D9B20047A972 /* Info.plist */,
@@ -184,6 +187,7 @@
 		99F4A7A822E4DCF90047A972 /* UI Layer */ = {
 			isa = PBXGroup;
 			children = (
+				99F4A7CA22E63C6F0047A972 /* Split Controller */,
 				99F4A7BC22E4F64E0047A972 /* Post Listing */,
 				99F4A7C522E5EF2B0047A972 /* Post Detail */,
 				99F4A7BD22E4F6920047A972 /* Full screen URL */,
@@ -204,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				99F4A77422E4D9B00047A972 /* PostListingViewController.swift */,
+				99F4A7CD22E63F4B0047A972 /* PostListing.storyboard */,
 				99F4A7A922E4DD1A0047A972 /* RedditPostTableViewCell.swift */,
 				99F4A7AA22E4DD1A0047A972 /* RedditPostTableViewCell.xib */,
 				99F4A7B822E4F21E0047A972 /* SpinnerTableViewCell.swift */,
@@ -236,6 +241,15 @@
 				99F4A7C822E5EF490047A972 /* PostDetailViewController.swift */,
 			);
 			path = "Post Detail";
+			sourceTree = "<group>";
+		};
+		99F4A7CA22E63C6F0047A972 /* Split Controller */ = {
+			isa = PBXGroup;
+			children = (
+				99F4A7CB22E63C8B0047A972 /* MainSplitViewController.swift */,
+				99F4A77622E4D9B00047A972 /* MainSplit.storyboard */,
+			);
+			path = "Split Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,8 +361,9 @@
 				99F4A7AC22E4DD1A0047A972 /* RedditPostTableViewCell.xib in Resources */,
 				99F4A7C722E5EF3D0047A972 /* PostDetail.storyboard in Resources */,
 				99F4A7BB22E4F21E0047A972 /* SpinnerTableViewCell.xib in Resources */,
+				99F4A7CE22E63F4B0047A972 /* PostListing.storyboard in Resources */,
 				99F4A77A22E4D9B20047A972 /* Assets.xcassets in Resources */,
-				99F4A77822E4D9B00047A972 /* Main.storyboard in Resources */,
+				99F4A77822E4D9B00047A972 /* MainSplit.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +398,7 @@
 				99F4A7A722E4DBE00047A972 /* Dictionary+Utils.swift in Sources */,
 				99F4A77522E4D9B00047A972 /* PostListingViewController.swift in Sources */,
 				99F4A7AE22E4E18A0047A972 /* Date+Utils.swift in Sources */,
+				99F4A7CC22E63C8B0047A972 /* MainSplitViewController.swift in Sources */,
 				99F4A77322E4D9B00047A972 /* AppDelegate.swift in Sources */,
 				99F4A7B522E4EC4E0047A972 /* ImageView+Utils.swift in Sources */,
 				99F4A7B322E4E6640047A972 /* PostsDataSource.swift in Sources */,
@@ -421,12 +437,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		99F4A77622E4D9B00047A972 /* Main.storyboard */ = {
+		99F4A77622E4D9B00047A972 /* MainSplit.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				99F4A77722E4D9B00047A972 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainSplit.storyboard;
 			sourceTree = "<group>";
 		};
 		99F4A77B22E4D9B20047A972 /* LaunchScreen.storyboard */ = {
