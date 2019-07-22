@@ -35,6 +35,11 @@ class PostListingViewController: UIViewController {
         self.dataSource.loadTopPosts()
     }
 
+    @IBAction func dismissAllButtonPressed(_ sender: Any) {
+        self.dataSource.posts.removeAll()
+        
+        self.tableView.reloadData()
+    }
 }
 
 // MARK: - DataSourceObserver

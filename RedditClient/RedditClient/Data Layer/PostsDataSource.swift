@@ -54,7 +54,7 @@ class PostsDataSource: NSObject {
 extension PostsDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count + (DataManager.sharedInstance.isNextPageAvailable() ? 1 : 0)
+        return posts.count + (DataManager.sharedInstance.isNextPageAvailable() && self.posts.count != 0 ? 1 : 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
