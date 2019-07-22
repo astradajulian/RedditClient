@@ -8,6 +8,8 @@
 
 import UIKit
 
+let fullScreenURLStoryboard = "FullScreenURL"
+
 let postDetailStoryboard = "PostDetail"
 
 @UIApplicationMain

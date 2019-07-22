@@ -96,6 +96,16 @@ extension PostListingViewController: UITableViewDelegate {
 
 extension PostListingViewController: RedditPostCellDelegate {
     
+    func thumbnailPressed(cell: RedditPostTableViewCell) {
+        guard let fullNVC = UIStoryboard(name: fullScreenURLStoryboard, bundle: nil).instantiateInitialViewController() as? UINavigationController, let fullVC = fullNVC.topViewController as? FullScreenURLViewController, let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        fullVC.post = self.dataSource.posts[indexPath.row]
+        
+        self.navigationController?.pushViewController(fullVC, animated: true)
+    }
+    
     func dismissed(cell: RedditPostTableViewCell) {
         guard let indexPath = self.tableView.indexPath(for: cell) else {
             return

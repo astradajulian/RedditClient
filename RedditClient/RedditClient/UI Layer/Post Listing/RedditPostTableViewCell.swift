@@ -9,6 +9,8 @@
 import UIKit
 
 protocol RedditPostCellDelegate {
+    func thumbnailPressed(cell: RedditPostTableViewCell)
+    
     func dismissed(cell: RedditPostTableViewCell)
 }
 
@@ -50,6 +52,13 @@ class RedditPostTableViewCell: UITableViewCell {
         self.thumbnailImageView.isHidden = post.thumbnail == nil
         
         self.unseenIndicator.isHidden = !post.unseen
+        
+        let thumbnailTap = UITapGestureRecognizer(target: self, action: #selector(thumbnaiPressed))
+        self.thumbnailImageView.addGestureRecognizer(thumbnailTap)
+    }
+    
+    @objc func thumbnaiPressed(_ sender: Any) {
+        self.delegate?.thumbnailPressed(cell: self)
     }
     
     @IBAction func dissmissButtonPressed(_ sender: Any) {

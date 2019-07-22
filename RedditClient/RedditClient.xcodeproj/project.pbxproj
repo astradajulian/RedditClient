@@ -25,9 +25,11 @@
 		99F4A7B522E4EC4E0047A972 /* ImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B422E4EC4E0047A972 /* ImageView+Utils.swift */; };
 		99F4A7BA22E4F21E0047A972 /* SpinnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7B822E4F21E0047A972 /* SpinnerTableViewCell.swift */; };
 		99F4A7BB22E4F21E0047A972 /* SpinnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A7B922E4F21E0047A972 /* SpinnerTableViewCell.xib */; };
-		99F4A7BF22E4F6B10047A972 /* PostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A7BE22E4F6B10047A972 /* PostDetail.storyboard */; };
-		99F4A7C122E4F6D80047A972 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7C022E4F6D80047A972 /* PostDetailViewController.swift */; };
+		99F4A7BF22E4F6B10047A972 /* FullScreenURL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A7BE22E4F6B10047A972 /* FullScreenURL.storyboard */; };
+		99F4A7C122E4F6D80047A972 /* FullScreenURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7C022E4F6D80047A972 /* FullScreenURLViewController.swift */; };
 		99F4A7C422E4F9810047A972 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99F4A7C322E4F9810047A972 /* WebKit.framework */; };
+		99F4A7C722E5EF3D0047A972 /* PostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F4A7C622E5EF3D0047A972 /* PostDetail.storyboard */; };
+		99F4A7C922E5EF490047A972 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F4A7C822E5EF490047A972 /* PostDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,9 +74,11 @@
 		99F4A7B422E4EC4E0047A972 /* ImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Utils.swift"; sourceTree = "<group>"; };
 		99F4A7B822E4F21E0047A972 /* SpinnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerTableViewCell.swift; sourceTree = "<group>"; };
 		99F4A7B922E4F21E0047A972 /* SpinnerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpinnerTableViewCell.xib; sourceTree = "<group>"; };
-		99F4A7BE22E4F6B10047A972 /* PostDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostDetail.storyboard; sourceTree = "<group>"; };
-		99F4A7C022E4F6D80047A972 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		99F4A7BE22E4F6B10047A972 /* FullScreenURL.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullScreenURL.storyboard; sourceTree = "<group>"; };
+		99F4A7C022E4F6D80047A972 /* FullScreenURLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenURLViewController.swift; sourceTree = "<group>"; };
 		99F4A7C322E4F9810047A972 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		99F4A7C622E5EF3D0047A972 /* PostDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostDetail.storyboard; sourceTree = "<group>"; };
+		99F4A7C822E5EF490047A972 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				99F4A7BC22E4F64E0047A972 /* Post Listing */,
-				99F4A7BD22E4F6920047A972 /* Post Detail */,
+				99F4A7C522E5EF2B0047A972 /* Post Detail */,
+				99F4A7BD22E4F6920047A972 /* Full screen URL */,
 			);
 			path = "UI Layer";
 			sourceTree = "<group>";
@@ -207,13 +212,13 @@
 			path = "Post Listing";
 			sourceTree = "<group>";
 		};
-		99F4A7BD22E4F6920047A972 /* Post Detail */ = {
+		99F4A7BD22E4F6920047A972 /* Full screen URL */ = {
 			isa = PBXGroup;
 			children = (
-				99F4A7BE22E4F6B10047A972 /* PostDetail.storyboard */,
-				99F4A7C022E4F6D80047A972 /* PostDetailViewController.swift */,
+				99F4A7BE22E4F6B10047A972 /* FullScreenURL.storyboard */,
+				99F4A7C022E4F6D80047A972 /* FullScreenURLViewController.swift */,
 			);
-			path = "Post Detail";
+			path = "Full screen URL";
 			sourceTree = "<group>";
 		};
 		99F4A7C222E4F9810047A972 /* Frameworks */ = {
@@ -222,6 +227,15 @@
 				99F4A7C322E4F9810047A972 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99F4A7C522E5EF2B0047A972 /* Post Detail */ = {
+			isa = PBXGroup;
+			children = (
+				99F4A7C622E5EF3D0047A972 /* PostDetail.storyboard */,
+				99F4A7C822E5EF490047A972 /* PostDetailViewController.swift */,
+			);
+			path = "Post Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,8 +343,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				99F4A77D22E4D9B20047A972 /* LaunchScreen.storyboard in Resources */,
-				99F4A7BF22E4F6B10047A972 /* PostDetail.storyboard in Resources */,
+				99F4A7BF22E4F6B10047A972 /* FullScreenURL.storyboard in Resources */,
 				99F4A7AC22E4DD1A0047A972 /* RedditPostTableViewCell.xib in Resources */,
+				99F4A7C722E5EF3D0047A972 /* PostDetail.storyboard in Resources */,
 				99F4A7BB22E4F21E0047A972 /* SpinnerTableViewCell.xib in Resources */,
 				99F4A77A22E4D9B20047A972 /* Assets.xcassets in Resources */,
 				99F4A77822E4D9B00047A972 /* Main.storyboard in Resources */,
@@ -359,9 +374,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				99F4A7BA22E4F21E0047A972 /* SpinnerTableViewCell.swift in Sources */,
-				99F4A7C122E4F6D80047A972 /* PostDetailViewController.swift in Sources */,
+				99F4A7C122E4F6D80047A972 /* FullScreenURLViewController.swift in Sources */,
 				99F4A7A222E4DB080047A972 /* APIManager.swift in Sources */,
 				99F4A7B122E4E5670047A972 /* DataManager.swift in Sources */,
+				99F4A7C922E5EF490047A972 /* PostDetailViewController.swift in Sources */,
 				99F4A7AB22E4DD1A0047A972 /* RedditPostTableViewCell.swift in Sources */,
 				99F4A7A422E4DB4E0047A972 /* RedditPost.swift in Sources */,
 				99F4A7A722E4DBE00047A972 /* Dictionary+Utils.swift in Sources */,

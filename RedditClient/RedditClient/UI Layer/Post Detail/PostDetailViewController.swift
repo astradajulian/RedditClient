@@ -2,78 +2,32 @@
 //  PostDetailViewController.swift
 //  RedditClient
 //
-//  Created by Julian Astrada on 21/07/2019.
+//  Created by Julian Astrada on 22/07/2019.
 //  Copyright © 2019 Julian Astrada. All rights reserved.
 //
 
 import UIKit
-import WebKit
 
 class PostDetailViewController: UIViewController {
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var authorLabel: UILabel!
     
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var pictureImageView: UIImageView!
     
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var post: RedditPost!
-    
-    var imageData: Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.activityIndicator.hidesWhenStopped = true
-        self.activityIndicator.startAnimating()
+        self.authorLabel.text = post.author
         
-        self.webView.navigationDelegate = self
-        
-        if let url = post.imageUrl {
-            if url.relativePath.contains(".jpg") || url.relativePath.contains(".png") {
-                do {
-                    self.saveButton.isEnabled = true
-                    let data = try Data(contentsOf: url)
-                    self.imageData = data
-                    self.webView.load(data, mimeType: "image/gif", characterEncodingName: "UTF-8", baseURL: url)
-                } catch {
-                    print(error)
-                }
-            } else {
-                self.saveButton.isEnabled = false
-                self.webView.load(URLRequest(url: url))
-            }
-        }
-    }
-    
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        guard let data = self.imageData else {
-            return
+        if let thumbnailURL = post.thumbnail {
+            self.pictureImageView.setImageFromURL(url: thumbnailURL)
         }
         
-        let compressedJPGImage = UIImage(data: data)
-        
-        UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        self.titleLabel.text = post.title
     }
-    
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
-        if let error = error {
-            // we got back an error!
-            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
-        } else {
-            let ac = UIAlertController(title: "Saved!", message: "The image has been saved to your photos.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
-        }
-    }
-}
 
-extension PostDetailViewController: WKNavigationDelegate {
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.activityIndicator.stopAnimating()
-    }
-    
 }
