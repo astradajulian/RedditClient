@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RedditPostTableViewCell" id="KGk-i7-Jjw" customClass="RedditPostTableViewCell" customModule="RedditClient" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RedditPostTableViewCell" rowHeight="180" id="KGk-i7-Jjw" customClass="RedditPostTableViewCell" customModule="RedditClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="170.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cmz-bv-p9P">
@@ -69,24 +69,35 @@
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yw-aR-NXc">
-                        <rect key="frame" x="289" y="137.5" width="70" height="17"/>
+                        <rect key="frame" x="289" y="146.5" width="70" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="1" green="0.65713463107671466" blue="0.28429011738113119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftg-aR-VcL">
+                        <rect key="frame" x="16" y="142.5" width="138" height="25"/>
+                        <state key="normal" title="  Dismiss post" image="icon-cancel">
+                            <color key="titleColor" red="1" green="0.65713463110000003" blue="0.28429011739999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="dissmissButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="caw-tD-rhU"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="CnG-xe-JO1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="13K-jk-GcC"/>
+                    <constraint firstItem="ftg-aR-VcL" firstAttribute="leading" secondItem="KcX-tj-jj1" secondAttribute="leading" id="5ZE-47-kPx"/>
                     <constraint firstItem="Y9T-iz-mUh" firstAttribute="top" secondItem="CnG-xe-JO1" secondAttribute="bottom" constant="16.5" id="7rT-dO-nwm"/>
                     <constraint firstItem="CnG-xe-JO1" firstAttribute="leading" secondItem="Cmz-bv-p9P" secondAttribute="trailing" constant="8" id="BAz-6V-8HS"/>
                     <constraint firstAttribute="bottom" secondItem="2Yw-aR-NXc" secondAttribute="bottom" constant="16" id="GpM-Jj-0FF"/>
+                    <constraint firstItem="ftg-aR-VcL" firstAttribute="top" secondItem="Y9T-iz-mUh" secondAttribute="bottom" constant="13" id="NeJ-2u-D9s"/>
                     <constraint firstItem="Y9T-iz-mUh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="NzD-EP-L3V"/>
                     <constraint firstAttribute="trailing" secondItem="CnG-xe-JO1" secondAttribute="trailing" constant="16" id="VQX-yl-7g8"/>
                     <constraint firstItem="2Yw-aR-NXc" firstAttribute="trailing" secondItem="CnG-xe-JO1" secondAttribute="trailing" id="Vwb-zH-dFD"/>
                     <constraint firstItem="Cmz-bv-p9P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="aj2-lZ-nN7"/>
                     <constraint firstAttribute="trailing" secondItem="Y9T-iz-mUh" secondAttribute="trailing" constant="16" id="cDH-O8-qal"/>
-                    <constraint firstItem="2Yw-aR-NXc" firstAttribute="top" secondItem="Y9T-iz-mUh" secondAttribute="bottom" constant="8" id="u9Z-OR-2Ih"/>
                     <constraint firstItem="Cmz-bv-p9P" firstAttribute="centerY" secondItem="CnG-xe-JO1" secondAttribute="centerY" id="yJO-V6-4EG"/>
+                    <constraint firstItem="ftg-aR-VcL" firstAttribute="centerY" secondItem="2Yw-aR-NXc" secondAttribute="centerY" id="zQv-KV-1JE"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -99,10 +110,11 @@
                 <outlet property="titleLabel" destination="tjG-Ka-e3k" id="X7J-e3-rKl"/>
                 <outlet property="unseenIndicator" destination="Rdr-2s-S8n" id="dpc-u9-wxi"/>
             </connections>
-            <point key="canvasLocation" x="132.60869565217394" y="207.92410714285714"/>
+            <point key="canvasLocation" x="132.60869565217394" y="210.9375"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon-cancel" width="25" height="25"/>
         <image name="placeholder" width="500" height="350"/>
     </resources>
 </document>

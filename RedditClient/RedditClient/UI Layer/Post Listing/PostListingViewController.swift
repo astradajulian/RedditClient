@@ -86,3 +86,18 @@ extension PostListingViewController: UITableViewDelegate {
     }
     
 }
+
+// MARK: - RedditPostCellDelegate
+
+extension PostListingViewController: RedditPostCellDelegate {
+    
+    func dismissed(cell: RedditPostTableViewCell) {
+        guard let indexPath = self.tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        self.dataSource.posts.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .right)
+    }
+    
+}

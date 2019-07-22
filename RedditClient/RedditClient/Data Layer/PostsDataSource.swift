@@ -70,6 +70,7 @@ extension PostsDataSource: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        postCell.delegate = observer as? RedditPostCellDelegate
         postCell.setupCell(post: posts[indexPath.row])
         
         return postCell

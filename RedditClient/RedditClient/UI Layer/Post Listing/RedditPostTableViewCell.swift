@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol RedditPostCellDelegate {
+    func dismissed(cell: RedditPostTableViewCell)
+}
+
 class RedditPostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var unseenIndicator: UIView! {
@@ -28,6 +32,8 @@ class RedditPostTableViewCell: UITableViewCell {
     
     static let identifier = "RedditPostTableViewCell"
     
+    var delegate: RedditPostCellDelegate?
+    
     func setupCell(post: RedditPost) {
         self.authorLabel.text = post.author
         
@@ -46,4 +52,7 @@ class RedditPostTableViewCell: UITableViewCell {
         self.unseenIndicator.isHidden = !post.unseen
     }
     
+    @IBAction func dissmissButtonPressed(_ sender: Any) {
+        self.delegate?.dismissed(cell: self)
+    }
 }
