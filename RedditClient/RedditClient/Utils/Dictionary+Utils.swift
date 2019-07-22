@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK : - Dictionary extention
+
 extension Dictionary {
     
     func stringFromHttpParameters() -> String {

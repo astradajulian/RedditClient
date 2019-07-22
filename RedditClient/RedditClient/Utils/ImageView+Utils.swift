@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK : - UIImageView extention
+
 extension UIImageView {
     
     func setImageFromURL(url: URL) {

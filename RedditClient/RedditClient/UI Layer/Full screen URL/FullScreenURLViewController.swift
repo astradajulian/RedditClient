@@ -70,6 +70,8 @@ class FullScreenURLViewController: UIViewController {
     }
 }
 
+// MARK : - WKNavigationDelegate
+
 extension FullScreenURLViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

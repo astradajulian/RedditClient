@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK : - Date extention
+
 extension Date {
     
     func formattedStringAge() -> String {

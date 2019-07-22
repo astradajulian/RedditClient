@@ -51,6 +51,8 @@ class PostsDataSource: NSObject {
     
 }
 
+// MARK : -UITableViewDataSource
+
 extension PostsDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
