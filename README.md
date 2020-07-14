@@ -1,4 +1,4 @@
-# reddit-client
+# RedditClient
 
 ## Objective
 
